@@ -1,4 +1,5 @@
-import random, time
+import random
+from termcolor import colored, cprint
 
 def main():
     
@@ -32,6 +33,7 @@ def main():
     sqKanyeWest = []
     kanyeWestCounter = 0
 
+    listaPartecipanti = ['mario','sara','sara2','alessia','sofia','stefano','samuel','valerio','veronica','farina','alice']
 
     # Creazione dizionari giocatori
 
@@ -93,30 +95,31 @@ def main():
 
     # Carico Kanye West
 
-    print("# Caricamento della squadra Kanye West...\n\n")
+    print(colored("\n# Caricamento della squadra Kanye West...\n",'red'))
     for i in range(5):
-        nome  = input("\nInserire il nomer del giocatore: ")
+        nome  = input("\nInserire il nome del giocatore: ")
         sqKanyeWest.append(str(nome).strip())
 
 
     # Carico Andrew Tate
 
-    print("# Caricamento della squadra Andrew Tate...\n\n")
-    for i in range(4):
-        nome  = input("\nInserire il nomer del giocatore: ")
-        sqAndrewTate.append(str(nome).strip())
+    print(colored("\n\n# Caricamento della squadra Andrew Tate...\n","red"))
+    for i in range(6):
+        nome  = input("\nInserire il nome del giocatore: ")
+        sqAndrewTate.append(str(nome).strip().lower())
 
-    while(kanyeWestCounter < 10 or andrewTateCounter < 10):
-        print("\nRound in corso...\n\n")
-        input("Attendere la fine del round\n\n")
+    finish=False
+    while(finish!=True):
+        print(colored("\nRound in corso...\n",'green'))
+        input(colored("Attendere la fine del round\n\n",'green'))
         check = 0
         while(check == 0):
 
             checkDict = False
             checkCount = False
 
-            name = input("Indicare a quale giocatore della squadra assegnare il malus:\n")
-            n = name.lower()
+            name = input(colored("Indicare a quale giocatore della squadra assegnare il malus: ",'red'))
+            n = str(name).lower()
 
             # Controlli sul nome del giocatore
 
@@ -131,10 +134,7 @@ def main():
                 checkCount = True
 
             else:
-                print("### Unknown Error - Coumt ###\n")
-
-                
-            
+                print("### Unknown Error - Coumt ###\n") 
 
             # Mario
 
@@ -150,7 +150,7 @@ def main():
                     malus = random.choice(penitenze2)
                     while(malus in mario["lista"]):
                         malus = random.choice(penitenze2)
-                elif(temp<2):
+                elif(temp>2):
                     malus = random.choice(penitenze3)
                     while(malus in mario["lista"]):
                         malus = random.choice(penitenze3)
@@ -174,7 +174,7 @@ def main():
                     malus = random.choice(penitenze2)
                     while(malus in alessia["lista"]):
                         malus = random.choice(penitenze2)
-                elif(temp<2):
+                elif(temp>2):
                     malus = random.choice(penitenze3)
                     while(malus in mario["lista"]):
                         malus = random.choice(penitenze3)
@@ -198,7 +198,7 @@ def main():
                     malus = random.choice(penitenze2)
                     while(malus in sofia["lista"]):
                         malus = random.choice(penitenze2)
-                elif(temp<2):
+                elif(temp>2):
                     malus = random.choice(penitenze3)
                     while(malus in sofia["lista"]):
                         malus = random.choice(penitenze3)
@@ -222,7 +222,7 @@ def main():
                     malus = random.choice(penitenze2)
                     while(malus in stefano["lista"]):
                         malus = random.choice(penitenze2)
-                elif(temp<2):
+                elif(temp>2):
                     malus = random.choice(penitenze3)
                     while(malus in stefano["lista"]):
                         malus = random.choice(penitenze3)
@@ -246,7 +246,7 @@ def main():
                     malus = random.choice(penitenze2)
                     while(malus in samuel["lista"]):
                         malus = random.choice(penitenze2)
-                elif(temp<2):
+                elif(temp>2):
                     malus = random.choice(penitenze3)
                     while(malus in samuel["lista"]):
                         malus = random.choice(penitenze3)
@@ -270,7 +270,7 @@ def main():
                     malus = random.choice(penitenze2)
                     while(malus in valerio["lista"]):
                         malus = random.choice(penitenze2)
-                elif(temp<2):
+                elif(temp>2):
                     malus = random.choice(penitenze3)
                     while(malus in valerio["lista"]):
                         malus = random.choice(penitenze3)
@@ -294,7 +294,7 @@ def main():
                     malus = random.choice(penitenze2)
                     while(malus in sara["lista"]):
                         malus = random.choice(penitenze2)
-                elif(temp<2):
+                elif(temp>2):
                     malus = random.choice(penitenze3)
                     while(malus in sara["lista"]):
                         malus = random.choice(penitenze3)
@@ -318,7 +318,7 @@ def main():
                     malus = random.choice(penitenze2)
                     while(malus in veronica["lista"]):
                         malus = random.choice(penitenze2)
-                elif(temp<2):
+                elif(temp>2):
                     malus = random.choice(penitenze3)
                     while(malus in veronica["lista"]):
                         malus = random.choice(penitenze3)
@@ -342,7 +342,7 @@ def main():
                     malus = random.choice(penitenze2)
                     while(malus in farina["lista"]):
                         malus = random.choice(penitenze2)
-                elif(temp<2):
+                elif(temp>2):
                     malus = random.choice(penitenze3)
                     while(malus in farina["lista"]):
                         malus = random.choice(penitenze3)
@@ -366,7 +366,7 @@ def main():
                     malus = random.choice(penitenze2)
                     while(malus in sara2["lista"]):
                         malus = random.choice(penitenze2)
-                elif(temp<2):
+                elif(temp>2):
                     malus = random.choice(penitenze3)
                     while(malus in sara2["lista"]):
                         malus = random.choice(penitenze3)
@@ -390,7 +390,7 @@ def main():
                     malus = random.choice(penitenze2)
                     while(malus in alice["lista"]):
                         malus = random.choice(penitenze2)
-                elif(temp<2):
+                elif(temp>2):
                     malus = random.choice(penitenze3)
                     while(malus in alice["lista"]):
                         malus = random.choice(penitenze3)
@@ -404,7 +404,14 @@ def main():
 
             
             if(checkDict==True and checkCount==True):
-                check += 1 
+                rp = str("\n#########################\n\n"+str(malus)+"\n\n#########################")
+                cprint(rp,"white","on_magenta")
+                if(kanyeWestCounter>=10):
+                    finish=True
+                elif(andrewTateCounter>=10):
+                    finish=True
+                check += 1
+                print(colored("\nPUNTEGGIO   "+str(andrewTateCounter)+" : "+str(kanyeWestCounter)+"\n",'yellow'))
             else:
                 print("\n ### Unknown Error... ###\n")
 
