@@ -48,15 +48,15 @@ def main():
 
     while(1):
         print("Carico la prossima sfida...\n\n")
-        time.sleep(60)
-        tipo = random.choice(type)
+        # time.sleep(5)
+        tipo = str(random.choice(type))
 
         if(tipo == 'generale'):
             domanda = random.choice(generale)
             
             # Controlla se la domanda è uscita
-            while(domanda not in generaleUscite):
-                domanda = random.choiche(generale)
+            while(domanda in generaleUscite):
+                domanda = random.choice(generale)
             
             domandaSol = []
             domandaSol = domanda.split('|').strip()
@@ -67,12 +67,12 @@ def main():
 
             input("La soluzione è: " + str(domandaSol[1]+"\n\n"))
     
-        if(tipo == 'pop'):
+        elif(tipo == 'pop'):
             domanda = random.choice(pop)
             
             # Controlla se la domanda è uscita
-            while(domanda not in popUscite):
-                domanda = random.choiche(pop)
+            while(domanda in popUscite):
+                domanda = random.choice(pop)
             
             domandaSol = []
             domandaSol = domanda.split('|').strip()
@@ -83,12 +83,12 @@ def main():
 
             input("La soluzione è: " + str(domandaSol[1]+"\n\n"))
 
-        if(tipo == 'gruppo'):
+        elif(tipo == 'gruppo'):
             domanda = random.choice(gruppo)
             
             # Controlla se la domanda è uscita
-            while(domanda not in gruppoUscite):
-                domanda = random.choiche(gruppo)
+            while(domanda in gruppoUscite):
+                domanda = random.choice(gruppo)
             
             domandaSol = []
             domandaSol = domanda.split('|').strip()
@@ -100,12 +100,12 @@ def main():
             input("La soluzione è: " + str(domandaSol[1]+"\n\n"))
 
 
-        if(tipo == 'sfide'):
+        elif(tipo == 'sfide'):
             domanda = random.choice(sfide)
             
             # Controlla se la domanda è uscita
-            while(domanda not in sfideUscite):
-                domanda = random.choiche(sfide)
+            while(domanda in sfideUscite):
+                domanda = random.choice(sfide)
             
             domandaSol = []
             domandaSol = domanda.split('|').strip()

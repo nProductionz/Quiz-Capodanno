@@ -96,17 +96,29 @@ def main():
     # Carico Kanye West
 
     print(colored("\n# Caricamento della squadra Kanye West...\n",'red'))
-    for i in range(5):
-        nome  = input("\nInserire il nome del giocatore: ")
-        sqKanyeWest.append(str(nome).strip())
+    kW = 0
+    while(kW < 5):
+        nome  = str(input("\nInserire il nome del giocatore: ")).lower()
+        if(nome in listaPartecipanti):
+            sqKanyeWest.append(nome.strip())
+            listaPartecipanti.remove(nome)
+            kW +=1
+        else:
+            cprint("\nERROR - NOME NON VALIDO\n","white","on_red") 
 
 
     # Carico Andrew Tate
 
     print(colored("\n\n# Caricamento della squadra Andrew Tate...\n","red"))
-    for i in range(6):
-        nome  = input("\nInserire il nome del giocatore: ")
-        sqAndrewTate.append(str(nome).strip().lower())
+    aT = 0
+    while(aT<6):
+        nome  = str(input("\nInserire il nome del giocatore: ")).lower()
+        if(nome in listaPartecipanti and nome not in sqKanyeWest):
+            sqAndrewTate.append(nome.strip())
+            listaPartecipanti.remove(nome)
+            aT+=1
+        else:
+            cprint("\nERROR - NOME NON VALIDO\n","white","on_red") 
 
     finish=False
     while(finish!=True):
@@ -411,7 +423,7 @@ def main():
                 elif(andrewTateCounter>=10):
                     finish=True
                 check += 1
-                print(colored("\nPUNTEGGIO   "+str(andrewTateCounter)+" : "+str(kanyeWestCounter)+"\n",'yellow'))
+                print(colored("\nPENITENZE   "+str(kanyeWestCounter)+" : "+str(andrewTateCounter)+"\n",'yellow'))
             else:
                 print("\n ### Unknown Error... ###\n")
 
